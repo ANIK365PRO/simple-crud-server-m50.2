@@ -53,6 +53,18 @@ async function run() {
     })
 
 
+      // for post 
+      app.post ('/users', async (req, res) =>{
+        const newUser = req.body
+        console.log('user to be inserted', newUser)
+
+        const result = await usersCollection.insertOne(newUser)
+        
+        res.send(result)
+      })
+
+
+      
 
       // for delete
       app.delete('/users/:id', async(req, res) =>{
